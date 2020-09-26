@@ -1,4 +1,4 @@
-package com.leexm.demo.cloud.consumer.ribbon.controller;
+package com.leexm.demo.cloud.consumer.feign.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
