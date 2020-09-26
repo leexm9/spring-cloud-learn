@@ -1,0 +1,57 @@
+server:
+  port: 8769
+  tomcat:
+    uri-encoding: UTF-8
+    threads:
+      # 最大工作线程数，默认 200。（4C8G，线程数经验值800，线程切换需要开销，并不是越多越好）
+      max: 300
+      # 最小工作空闲线程数，默认 10。（适当增大一些，以便应对突然增长的访问量）
+      min-spare: 2
+    # 等待队列长度，默认 100
+    accept-count: 200
+    # 最大连接数（这个参数是指在同一时间，tomcat能够接受的最大连接数。一般这个值要大于maxThreads+acceptCount）
+    max-connections: 600
+
+spring:
+  application:
+    name: admin-server
+  security:
+    user:
+      name: "admin"
+      password: "tiger"
+
+eureka:
+  # eureka 实例
+  instance:
+    # 主机名
+    hostname: admin
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    # 每隔 5s 发送一次心跳
+    lease-renewal-interval-in-seconds: 5
+    # 告知服务端 10秒 还未收到心跳的话，就将该服务移除列表
+    lease-expiration-duration-in-seconds: 10
+    # 健康检查路径
+    health-check-url-path: /actuator/health
+    metadata-map:
+      user:
+        name: ${spring.security.user.name}
+        password: ${spring.security.user.password}
+
+  # eureka 客户端
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    registry-fetch-interval-seconds: 5
+    service-url:
+      defaultZone: http://localhost:1001/eureka/
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
