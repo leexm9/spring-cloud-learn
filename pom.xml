@@ -23,6 +23,11 @@
         <module>admin-server</module>
         <module>eureka-server</module>
         <module>service-provider</module>
+        <module>service-consumer</module>
+
+        <!--使用ribbon和feign调用服务接口-->
+        <module>service-consumer-ribbon</module>
+
     </modules>
 
     <dependencyManagement>

@@ -1,4 +1,4 @@
-package com.leexm.demo.consumer.controller;
+package com.leexm.demo.cloud.consumer.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
