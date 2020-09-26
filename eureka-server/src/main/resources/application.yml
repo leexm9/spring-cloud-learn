@@ -1,0 +1,35 @@
+server:
+  port: 1001
+  tomcat:
+    uri-encoding: UTF-8
+    threads:
+      # 最大工作线程数，默认 200。（4C8G，线程数经验值800，线程切换需要开销，并不是越多越好）
+      max: 300
+      # 最小工作空闲线程数，默认 10。（适当增大一些，以便应对突然增长的访问量）
+      min-spare: 2
+    # 等待队列长度，默认 100
+    accept-count: 200
+    # 最大连接数（这个参数是指在同一时间，tomcat能够接受的最大连接数。一般这个值要大于maxThreads+acceptCount）
+    max-connections: 600
+
+spring:
+  application:
+    name: eureka-server
+
+eureka:
+  # eureka 实例
+  instance:
+    # 主机名
+    hostname: localhost
+  # eureka 客户端
+  client:
+    # 客户端注册服务
+    register-with-eureka: false
+    # 订阅服务
+    fetch-registry: false
+  # eureka 服务端
+  server:
+    # 关闭自我保护机制，防止失效的服务也被一直访问 (Spring Cloud默认该配置是 true)
+    enable-self-preservation: false
+    # 续期时间，即扫描失效服务的间隔时间，默认是 60*1000ms
+    eviction-interval-timer-in-ms: 30000
