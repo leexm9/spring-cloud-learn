@@ -1,4 +1,4 @@
-package com.leexm.demo.cloud.consumer.feign.service;
+package com.leexm.demo.cloud.consumer.ribbon.service;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

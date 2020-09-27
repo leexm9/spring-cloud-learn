@@ -1,9 +1,9 @@
 package com.leexm.demo.cloud.consumer.ribbon.controller;
 
-import com.leexm.demo.cloud.consumer.ribbon.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * @author leexm
@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 
     @Autowired
-    private HelloService helloService;
+    private RestTemplate restTemplate;
 
-    @GetMapping("/feign-hello")
+    @GetMapping("/hello")
     public String hello() {
-        return helloService.hello();
+        return restTemplate.getForObject("http://hello-service/hello", String.class);
     }
 
 }

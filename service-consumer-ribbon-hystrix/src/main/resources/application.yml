@@ -1,5 +1,5 @@
 server:
-  port: 8084
+  port: 8083
   tomcat:
     uri-encoding: UTF-8
     threads:
@@ -10,7 +10,7 @@ server:
 
 spring:
   application:
-    name: hello-consumer-feign
+    name: hello-consumer-hystrix
 
 eureka:
   instance:
