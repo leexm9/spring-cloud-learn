@@ -8,7 +8,7 @@
         <version>1.0.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <groupId>com.leexm.demo.consumer</groupId>
+    <groupId>com.leexm.demo.cloud</groupId>
     <artifactId>service-consumer-ribbon</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>service-consumer-ribbon</name>

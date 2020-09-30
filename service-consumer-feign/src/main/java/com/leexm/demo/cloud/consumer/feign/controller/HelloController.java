@@ -1,4 +1,4 @@
-package com.leexm.demo.cloud.consumer.ribbon.controller;
+package com.leexm.demo.cloud.consumer.feign.controller;
 
 import com.leexm.demo.cloud.consumer.ribbon.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;

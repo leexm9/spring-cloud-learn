@@ -23,12 +23,14 @@
         <module>admin-server</module>
         <module>eureka-server</module>
         <module>service-provider</module>
+        <module>service-provider2</module>
         <module>service-consumer</module>
 
         <!--使用ribbon和feign调用服务接口-->
         <module>service-consumer-ribbon</module>
         <module>service-consumer-ribbon-hystrix</module>
         <module>service-consumer-feign</module>
+        <module>service-consumer-feign-hystrix</module>
 
     </modules>
 
