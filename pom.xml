@@ -31,6 +31,7 @@
         <module>service-consumer-ribbon-hystrix</module>
         <module>service-consumer-feign</module>
         <module>service-consumer-feign-hystrix</module>
+        <module>hystrix-dashboard</module>
 
     </modules>
 

@@ -1,0 +1,16 @@
+server:
+  port: 2001
+  tomcat:
+    uri-encoding: UTF-8
+    threads:
+      max: 300
+      min-spare: 2
+    accept-count: 200
+    max-connections: 600
+
+spring:
+  application:
+    name: hystrix-dashboard
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: ["localhost", "127.0.0.1"]
