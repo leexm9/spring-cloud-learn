@@ -27,6 +27,7 @@ public class HelloController {
         int sleepTime = ThreadLocalRandom.current().nextInt(3000);
         TimeUnit.MILLISECONDS.sleep(sleepTime);
         logger.info("sleepTime:" + sleepTime);
+
         logger.info("/hello1, host:" + registration.getInstanceId() + ", service_id:" + registration.getServiceId());
         return "hello, world!";
     }

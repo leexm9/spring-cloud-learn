@@ -16,6 +16,7 @@ spring:
 
 feign:
   hystrix:
+    # 开启断路器，默认 false
     enabled: true
 
 eureka:
