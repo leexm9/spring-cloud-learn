@@ -28,9 +28,9 @@ public class HelloController {
     @GetMapping(value = "/feign-hello2")
     public String helloConsumer2() {
         StringBuilder sb = new StringBuilder();
-        sb.append(helloService.hello("DIDI")).append(System.lineSeparator());
-        sb.append(helloService.hello("DIDI", 30)).append(System.lineSeparator());
-        sb.append(helloService.hello(new Person("DIDI", 30))).append(System.lineSeparator());
+        sb.append(helloService.hello("Tom")).append(System.lineSeparator());
+        sb.append(helloService.hello("Tom", 30)).append(System.lineSeparator());
+        sb.append(helloService.hello(new Person("Tom", 30))).append(System.lineSeparator());
         System.out.println(sb.toString());
         return sb.toString();
     }
@@ -38,9 +38,9 @@ public class HelloController {
     @GetMapping(value = "/feign-hello3")
     public String helloConsumer3() {
         StringBuilder sb = new StringBuilder();
-        sb.append(helloService.hello("MIMI")).append(System.lineSeparator());
-        sb.append(helloService.hello("MIMI", 20)).append(System.lineSeparator());
-        sb.append(helloService.hello(new Person("MIMI", 20))).append(System.lineSeparator());
+        sb.append(helloService.hello("Jack")).append(System.lineSeparator());
+        sb.append(helloService.hello("Jack", 20)).append(System.lineSeparator());
+        sb.append(helloService.hello(new Person("Jack", 20))).append(System.lineSeparator());
         return sb.toString();
     }
 

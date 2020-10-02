@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @FeignClient("hello-service")
 public interface HelloService1 {
 
-    @GetMapping("/refactor/hello")
+    @GetMapping("/hello")
     String hello();
 
 }

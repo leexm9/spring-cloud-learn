@@ -11,6 +11,12 @@ server:
 spring:
   application:
     name: hello-consumer-hystrix
+  main:
+    allow-bean-definition-overriding: true
+
+feign:
+  hystrix:
+    enabled: true
 
 eureka:
   instance:
