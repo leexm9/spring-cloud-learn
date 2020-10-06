@@ -33,6 +33,9 @@
         <module>service-consumer-feign-hystrix</module>
         <module>hystrix-dashboard</module>
 
+        <!-- 网关 -->
+        <module>gateway-center</module>
+
     </modules>
 
     <dependencyManagement>

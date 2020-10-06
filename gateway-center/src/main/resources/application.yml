@@ -1,0 +1,62 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: gateway-center
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true     # 开启从注册中心动态创建路由的功能
+          lower-case-service-id: true     # 使用小写服务名，默认是大写
+      routes:
+        - id: baidu
+          uri: https://www.baidu.com
+          predicates:
+            - Path=/baidu/**
+          filters:
+            - StripPrefix=1
+
+        - id: path_route1
+          uri: http://localhost:8080
+          predicates:
+            - Path=/provider/**  # 匹配的路径
+          filters:
+            - StripPrefix=1   # 去除 path 中的 /hello-service，转发
+
+        - id: hello-service-route
+          uri: lb://hello-service
+          predicates:
+            - Path=/hello-service/**
+          filters:
+            - StripPrefix=1
+
+        - id: feign-consumer
+          uri: lb://hello-consumer-hystrix:8085
+          predicates:
+            - Path=/feign-service/**
+          filters:
+            - StripPrefix=1
+            - name: Hystrix # 添加熔断
+              args:
+                name: fallbackCmdA
+                fallbackUri: forward:/fallback
+
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    health-check-url-path: /actuator/health
+  client:
+    registry-fetch-interval-seconds: 10
+    serviceUrl:
+      defaultZone: http://localhost:1001/eureka/
+
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
+
+hystrix:
+  metrics:
+    enabled: true
+    polling-interval-ms: 3000
